@@ -1,0 +1,65 @@
+<!-- Navbar -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+	<!-- Branding -->
+	<div id="brand">
+		<a id="home" href="">
+
+			<i class="fab fa-staylinked fa-2x"></i>
+			<span class="navbar-brand mb-0 ml-0 mr-0 pr-0" style="font-family: Courier; font-size: 22px;">pot</span>
+
+			<!-- <img src="/media/logo_temp.jpg"/> -->
+
+		</a>
+	</div>
+
+	<!-- Toggler Upon Collpase at lg Breakpoint -->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse ml-auto mr-auto" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="nav-btn">Categories</span>
+				</a>
+				<div id="categories" class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="">Sub Category</a>
+					<a class="dropdown-item" href="">Sub Category</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="">Sub Branch</a>
+				</div>
+			</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="nav-btn">
+							<i class="fas fa-user-circle"></i> {{ user.get_full_name }}
+						</span>
+					</a>
+					<div id="user_options" class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="{{ user.account.get_profile_url }}">Profile</a>
+						<a class="dropdown-item" href="">Something</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="">Logout</a>
+					</div>
+				</li>
+			<li class="nav-item">
+				<a id="cart" class="nav-link" href="" style="position: relative;">
+					<span class="nav-btn"><i class="fas fa-shopping-cart fa-lg"></i><span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div class="mt-5 pt-2" style="position: fixed; top: 5px; left: 0; right: 0; z-index: 2;">
+	{% if messages %}
+	    {% for message in messages %}
+		    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+		    	{{ message }}
+		    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    		<span aria-hidden="true">&times;</span>
+		    	</button>
+		    </div>
+	    {% endfor %}
+	{% endif %}
+</div>
