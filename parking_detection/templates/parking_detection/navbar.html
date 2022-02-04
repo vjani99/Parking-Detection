@@ -21,33 +21,24 @@
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="nav-btn">Categories</span>
+					<span class="nav-btn">Explore</span>
 				</a>
-				<div id="categories" class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="">Sub Category</a>
-					<a class="dropdown-item" href="">Sub Category</a>
+				<div id="explore" class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="">Harris Center</a>
+					<a class="dropdown-item" href="{% url 'parking_lot' %}">Harris Commons</a>
+					<a class="dropdown-item" href="">Panther Dining</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="">Sub Branch</a>
+					<a class="dropdown-item" href="">Insights</a>
+					<a class="dropdown-item" href="">Report</a>
 				</div>
 			</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<li class="nav-item">
+					<a class="nav-link" href="">
 						<span class="nav-btn">
 							<i class="fas fa-user-circle"></i> {{ user.get_full_name }}
 						</span>
 					</a>
-					<div id="user_options" class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{{ user.account.get_profile_url }}">Profile</a>
-						<a class="dropdown-item" href="">Something</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="">Logout</a>
-					</div>
 				</li>
-			<li class="nav-item">
-				<a id="cart" class="nav-link" href="" style="position: relative;">
-					<span class="nav-btn"><i class="fas fa-shopping-cart fa-lg"></i><span>
-				</a>
-			</li>
 		</ul>
 	</div>
 </nav>
