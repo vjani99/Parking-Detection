@@ -20,16 +20,21 @@
 	<div class="collapse navbar-collapse ml-auto mr-auto" id="navbarSupportedContent">
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a style="margin-right: 45px" class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<span class="nav-btn">Explore</span>
 				</a>
 				<div id="explore" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'index' %}">Home</a>
+                    <div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="">Harris Center</a>
 					<a class="dropdown-item" href="{% url 'parking_lot' %}">Harris Commons</a>
 					<a class="dropdown-item" href="">Panther Dining</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="">Insights</a>
 					<a class="dropdown-item" href="">Report</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'about_us'%}">About Us</a>
+                    <a class="dropdown-item" href="{% url 'contact_us'%}">Contact Us</a>
 				</div>
 			</li>
 				<li class="nav-item">
