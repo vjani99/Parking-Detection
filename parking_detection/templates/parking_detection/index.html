@@ -80,7 +80,7 @@
         <ol class="carousel-indicators">
             <li data-target="#featured-items" data-slide-to="0" class="active"></li>
             <li data-target="#featured-items" data-slide-to="1"></li>
-            <li data-target="#featured-items" data-slide-to="2"></li>
+            {% comment %}<li data-target="#featured-items" data-slide-to="2"></li>{% endcomment %}
         </ol>
 
         <!-- Slideshow -->
@@ -89,14 +89,20 @@
                 <div class="container">
                     <div class="carousel-caption text-left">
                         <h1>Harris Commons Parking Lot</h1>
-                        <p>Insights:</p>
-                        <p>....</p>
-                        <p>...</p>
+                        <div id="insights-list">
+                            <p>Insights:</p>
+                            <ul>
+                                <li>50% Occupancy</li>
+                                <li>50% Availability</li>
+                                <li>Section/s Available: 1, 2</li>
+                                <li>Occupancy Prediction: 100% full at 2pm</li>
+                            </ul>
+                        </div>
                         <p><a class="btn btn-lg btn-primary" href="{% url 'parking_lot' %}" role="button">Show parking lot</a></p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9))">
+            {% comment %}<div class="carousel-item" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9))">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Another Parking Lot</h1>
@@ -104,13 +110,21 @@
                         <p><a class="btn btn-lg btn-primary" href="#" role="button">Check it out</a></p>
                     </div>
                 </div>
-            </div>
+            </div>{% endcomment %}
             <div class="carousel-item" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9))">
                 <div class="container">
-                    <div class="carousel-caption text-right">
-                        <h1>One More Example</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Check map</a></p>
+                    <div class="carousel-caption text-left">
+                        <h1>Harris Center Parking Lot</h1>
+                        <div id="insights-list">
+                            <p>Insights:</p>
+                            <ul>
+                                <li>75% Occupancy</li>
+                                <li>25% Availability</li>
+                                <li>Section/s Available: 3</li>
+                                <li>Occupancy Prediction: 75% full at 2pm</li>
+                            </ul>
+                        </div>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Show parking lot</a></p>
                     </div>
                 </div>
             </div>
