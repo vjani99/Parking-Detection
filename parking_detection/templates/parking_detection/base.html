@@ -129,6 +129,21 @@
             width: 45vw;
         }
 
+        .insights > ul, li {
+            list-style-type: none;
+            {% comment %}font-size: 20px;{% endcomment %}
+            flex-direction: row;
+            padding: 0.2em;
+        }
+
+        .comingsoon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+
         /* Extra small devices (phones, 600px and down)
         @media only screen and (max-width: 600px) {
             #searchbar {width: 300px;}
