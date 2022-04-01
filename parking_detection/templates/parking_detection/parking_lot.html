@@ -200,44 +200,55 @@
     {% include "parking_detection/footer.html" %}
 
     <script>
-        var l1 = 1;
-        var l2 = 1;
-        var l3 = 0;
-        var l4 = 0;
+	// Run updateMap once and then every 5 minutes
+	updateMap();
+	setInterval(updateMap, 300000);
 
-        if (l1 == 0) {
-            document.getElementById("l1").innerHTML = "NONE AVAILABLE";
-            document.getElementById("box1").style.border = "4px solid red"
-        } else {
-            document.getElementById("l1").innerHTML = "SPOTS AVAILABLE";
-            document.getElementById("box1").style.border = "4px solid green"
-        }
+	function updateMap() {
+		fetch("/map-data", {method: "PUT"})
+			.then(response => response.json())
+			.then(data => {
+				var l1 = data.zone1;
+				var l2 = data.zone2;
+				var l3 = data.zone3;
+				var l4 = data.zone4;
 
-        if (l2 == 0) {
-            document.getElementById("l2").innerHTML = "NONE AVAILABLE";
-            document.getElementById("box2").style.border = "4px solid red"
+				console.log(data);
 
-        } else {
-            document.getElementById("l2").innerHTML = "SPOTS AVAILABLE";
-            document.getElementById("box2").style.border = "4px solid green"
-        }
+				if (l1 == 0) {
+					document.getElementById("l1").innerHTML = "NONE AVAILABLE";
+					document.getElementById("box1").style.border = "2px solid red" 
+				} else {
+					document.getElementById("l1").innerHTML = "SPOTS AVAILABLE";
+					document.getElementById("box1").style.border = "2px solid green" 
+				}
 
-        if (l3 == 0) {
-            document.getElementById("l3").innerHTML = "NONE AVAILABLE";
-            document.getElementById("box3").style.border = "4px solid red"
-        } else {
-            document.getElementById("l3").innerHTML = "SPOTS AVAILABLE";
-            document.getElementById("box3").style.border = "4px solid green"
-        }
+				if (l2 == 0) {
+					document.getElementById("l2").innerHTML = "NONE AVAILABLE";
+					document.getElementById("box2").style.border = "2px solid red"
 
-        if (l4 == 0) {
-            document.getElementById("l4").innerHTML = "NONE AVAILABLE";
-            document.getElementById("box4").style.border = "4px solid red"
-        } else {
-            document.getElementById("l4").innerHTML = "SPOTS AVAILABLE";
-            document.getElementById("box4").style.border = "4px solid green"
-        }
+				} else {
+					document.getElementById("l2").innerHTML = "SPOTS AVAILABLE";
+					document.getElementById("box2").style.border = "2px solid green"
+				}
 
+				if (l3 == 0) {
+					document.getElementById("l3").innerHTML = "NONE AVAILABLE";
+					document.getElementById("box3").style.border = "2px solid red"
+				} else {
+					document.getElementById("l3").innerHTML = "SPOTS AVAILABLE";
+					document.getElementById("box3").style.border = "2px solid green" 
+				}
+
+				if (l4 == 0) {
+					document.getElementById("l4").innerHTML = "NONE AVAILABLE";
+					document.getElementById("box4").style.border = "2px solid red"
+				} else {
+					document.getElementById("l4").innerHTML = "SPOTS AVAILABLE";
+					document.getElementById("box4").style.border = "2px solid green" 
+				}
+			});
+	}
     </script>
 
 {% endblock %}
