@@ -3,100 +3,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>{% block title %}{% endblock %}</title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<!-- Font Awesome (icons) -->
-	<script src="https://kit.fontawesome.com/4faa44e8cf.js" crossorigin="anonymous"></script>
-	<!-- JQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<!-- Popper.js -->
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<!-- Bootsrap JS -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	{% block head %}
-	{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Font Awesome (icons) -->
+    <script src="https://kit.fontawesome.com/4faa44e8cf.js" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- Bootsrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    {% block head %}
+    {% endblock %}
 
-	<!-- Navbar Styling -->
-	<style>
-		#brand {
-			margin-left: 0vw;
-			margin-right: 0vw;
-			padding-left: 2vw;
-			padding-right: 5vw;
-		}
+    <!-- Navbar Styling -->
+    <style>
+        {% comment %}Style for about us cards{% endcomment %}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
 
-		.nav-item > a {
-			font-size: 16px;
-		}
+        html {
+            box-sizing: border-box;
+        }
 
-		.nav-btn {
-			color: white;
-			opacity: 80%;
-		}
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
 
-		.nav-btn:hover {
-			opacity: 100%;
-		}
+        .column {
+            float: left;
+            width: 50%;
+            margin-bottom: 16px;
+            padding: 0 20px 0 20px;
+        }
 
-		/* Categories dropdown menu triggered on hover rather than click */
-		@media screen and (min-width: 768px){
-			.dropdown:hover .dropdown-menu {
-				display: block;
-				margin-top: 0; /* remove the gap so it doesn't close */
-			}
-		}
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
 
-		#searchbar {
-			width: 45vw;
-		}
+        .about-us-img {
+            max-width: 15%;
+            ma-height: auto;
+            border-radius: 5em 5em 5em 5em;
+            display: block;
+            margin: 0.3em auto 0.3em auto;
 
-		/* Extra small devices (phones, 600px and down)
-		@media only screen and (max-width: 600px) {
-			#searchbar {width: 300px;}
-		}
+        }
+        .about-section {
+            text-align: center;
+            background-color: #474e5d;
+            color: white;
+            width: 100%;
+        {% comment %}padding-top: 90px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        padding-left: 30px;
+        padding-right: 30px;{% endcomment %}
+            padding: 90px 30px 30px 30px;
+        }
 
-		/* Small devices (portrait tablets and large phones, 600px and up)
-		@media only screen and (min-width: 600px) {
-			#searchbar {width: 400px;}
-		}
+        .about-section > p {
+            font-size: 18px;
+        }
+        .container {
+            padding: 0 16px;
+        }
 
-		/* Medium devices (landscape tablets, 768px and up)
-		@media only screen and (min-width: 768px) {
-			#searchbar {width: 500px;}
-		}
+        .container::after, .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
-		/* Large devices (laptops/desktops, 992px and up)
-		@media only screen and (min-width: 992px) {
-			#searchbar {width: 600px;}
-		}
+        .title {
+            color: grey;
+        }
 
-		/* Extra large devices (large laptops and desktops, 1200px and up)
-		@media only screen and (min-width: 1200px) {
-			#searchbar {width: 700px;}
-		} */
+        {% comment %} Insights in main menu style {% endcomment %}
+        #insights-list {
+            font-size: 20px;
+        }
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
 
-	</style>
+        {% comment %} End of style for about us page {% endcomment %}
+        #brand {
+            margin-left: 0vw;
+            margin-right: 0vw;
+            padding-left: 2vw;
+            padding-right: 5vw;
+        }
+
+        .nav-item > a {
+            font-size: 16px;
+        }
+
+        .nav-btn {
+            color: white;
+            opacity: 80%;
+        }
+
+        .nav-btn:hover {
+            opacity: 100%;
+        }
+
+        /* Categories dropdown menu triggered on hover rather than click */
+        @media screen and (min-width: 768px){
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                margin: 0 0 0 0; /* remove the gap so it doesn't close. Margin determines dropdown position for explore */
+            }
+        }
+
+        #searchbar {
+            width: 45vw;
+        }
+
+        .insights > ul, li {
+            list-style-type: none;
+            {% comment %}font-size: 20px;{% endcomment %}
+            flex-direction: row;
+            padding: 0.2em;
+        }
+
+        .comingsoon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+
+        /* Extra small devices (phones, 600px and down)
+        @media only screen and (max-width: 600px) {
+            #searchbar {width: 300px;}
+        }
+
+        /* Small devices (portrait tablets and large phones, 600px and up)
+        @media only screen and (min-width: 600px) {
+            #searchbar {width: 400px;}
+        }
+
+        /* Medium devices (landscape tablets, 768px and up)
+        @media only screen and (min-width: 768px) {
+            #searchbar {width: 500px;}
+        }
+
+        /* Large devices (laptops/desktops, 992px and up)
+        @media only screen and (min-width: 992px) {
+            #searchbar {width: 600px;}
+        }
+
+        /* Extra large devices (large laptops and desktops, 1200px and up)
+        @media only screen and (min-width: 1200px) {
+            #searchbar {width: 700px;}
+        } */
+
+        .report-btn {
+            margin: 25px 0 0 0;
+        }
+    </style>
 
 </head>
 
 <body>
-	{% block body %}
-	{% endblock %}
-	<script>
-	    const formatter = new Intl.NumberFormat('en-US', {
-	    	style: 'currency',
-	    	currency: 'USD',
-	    	minimumFractionDigits: 2
-	    })
+{% block body %}
+{% endblock %}
+<script>
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+    })
 
-	    let money_elements = document.querySelectorAll('.money')
+    let money_elements = document.querySelectorAll('.money')
 
-	    money_elements.forEach(function(item){
-	    	item.innerHTML = formatter.format(item.innerHTML);
-	    });
-  </script>
+    money_elements.forEach(function(item){
+        item.innerHTML = formatter.format(item.innerHTML);
+    });
+</script>
 </body>
 </html>

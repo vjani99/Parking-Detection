@@ -1,0 +1,136 @@
+{% extends "parking_detection/base.html" %}
+{% load static %}
+
+{% block title %}
+    About Us
+{% endblock %}
+
+{% block head %}
+    <style>
+        /* GLOBAL STYLES */
+
+        /* CUSTOMIZE THE CAROUSEL */
+
+        #copyright {
+            font-size: 12px;
+        }
+
+        #social_handle > a:hover {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        .grey-text {
+            color: grey;
+        }
+
+        .dark-grey-text {
+            color: #2e2e2e
+        }
+
+        #navbar {
+            background-color: rgba(220, 53, 69, 1);
+        }
+
+        #brand {
+            margin-right: 60px;
+            margin-left: 50px;
+        }
+
+        #home {
+            color: white;
+        }
+
+        #home:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+        #title {
+            padding-top: 100px;
+            padding-bottom: 10px;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    {% include "parking_detection/navbar.html" %}
+
+    {% comment %}Cards for each group member{% endcomment %}
+    <div class="about-section">
+        <h1>About Us</h1>
+        <p>Students staff and faculty struggle  to find available parking spaces on Florida Tech’s campus on a
+            day-to-day basis.This leads to an array of problems that not only affects drivers but also affects traffic
+            patterns in and around the university.The goal of this project is to design a CNN that will be used to
+            identify different parking zones in various parking lots on Florida Tech's campus.The CNN will be used in
+            conjunction with a web application which will convey the results of the CNN in a user-friendly manner.</p>
+
+    </div>
+
+    <h2 style="text-align:center; padding: 20px 20px">Our Team</h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img class="about-us-img" src="https://media-exp1.licdn.com/dms/image/C4E03AQF-DI_bHD_9yQ/profile-displayphoto-shrink_800_800/0/1552439204033?e=1653523200&v=beta&t=q2072irjqeJicVo7f6hHDKp_9k8GgFiyfrK6FoW-_cM" alt="Julian">
+                <div class="container">
+                    <h2>Juliann Weir-Jackson</h2>
+                    <p class="title">Computer Science</p>
+                    <p>fijiefjfiejsf</p>
+                    <p><a target="_blank" href="https://www.linkedin.com/in/juliann-weir-jackson-571067179/"> LinkedIn</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img class="about-us-img" src="https://faces.fit.edu/47e1bd1d496788de80218cd5257bbbc0.jpg" alt="Vedant">
+                <div class="container">
+                    <h2>Jani Vedant</h2>
+                    <p class="title">Computer Science</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p><a target="_blank" href="https://www.linkedin.com/in/vedant-jani/"> LinkedIn</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img class="about-us-img" src="https://faces.fit.edu/254a46f29e1c9e227e05ad61becc0501.jpg" alt="Nico">
+                <div class="container">
+                    <h2>Nicolas Ayala</h2>
+                    <p class="title">Software Engineering</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p><a target="_blank" href="https://www.linkedin.com/in/nicolas-ayala-575912205/"> LinkedIn</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img class="about-us-img" src="https://faces.fit.edu/e6076d18a7d66646ece3be328ac4abfd.jpg" alt="Dv">
+                <div class="container">
+                    <h2>Divyanish Gupta</h2>
+                    <p class="title">Computer Science</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p><a target="_blank" href="https://www.linkedin.com/in/divyansh-gupta-071a70202/"> LinkedIn</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% include "parking_detection/footer.html" %}
+
+    </body>
+
+
+{% endblock %}
