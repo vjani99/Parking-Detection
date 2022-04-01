@@ -10,6 +10,9 @@ def index(request):
 def parking_lot(request):
     return render(request, 'parking_detection/parking_lot.html')
 
+def report(request):
+    return render(request, 'parking_detection/report.html')
+
 @csrf_exempt
 def model_output(request):
     if request.method == "PUT":
