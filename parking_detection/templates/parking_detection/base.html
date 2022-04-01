@@ -48,20 +48,23 @@
         }
 
         .about-us-img {
-            max-width: 100px;
-            height: auto;
+            max-width: 15%;
+            ma-height: auto;
             border-radius: 5em 5em 5em 5em;
+            display: block;
+            margin: 0.3em auto 0.3em auto;
 
         }
         .about-section {
             text-align: center;
             background-color: #474e5d;
             color: white;
-            {% comment %}padding-top: 90px;
-            padding-bottom: 30px;
-            margin-bottom: 30px;
-            padding-left: 30px;
-            padding-right: 30px;{% endcomment %}
+            width: 100%;
+        {% comment %}padding-top: 90px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        padding-left: 30px;
+        padding-right: 30px;{% endcomment %}
             padding: 90px 30px 30px 30px;
         }
 
@@ -82,6 +85,10 @@
             color: grey;
         }
 
+        {% comment %} Insights in main menu style {% endcomment %}
+        #insights-list {
+            font-size: 20px;
+        }
         @media screen and (max-width: 650px) {
             .column {
                 width: 100%;
@@ -114,12 +121,27 @@
         @media screen and (min-width: 768px){
             .dropdown:hover .dropdown-menu {
                 display: block;
-                margin-top: 0; /* remove the gap so it doesn't close */
+                margin: 0 0 0 0; /* remove the gap so it doesn't close. Margin determines dropdown position for explore */
             }
         }
 
         #searchbar {
             width: 45vw;
+        }
+
+        .insights > ul, li {
+            list-style-type: none;
+            {% comment %}font-size: 20px;{% endcomment %}
+            flex-direction: row;
+            padding: 0.2em;
+        }
+
+        .comingsoon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
         }
 
         /* Extra small devices (phones, 600px and down)
@@ -147,6 +169,9 @@
             #searchbar {width: 700px;}
         } */
 
+        .report-btn {
+            margin: 25px 0 0 0;
+        }
     </style>
 
 </head>

@@ -26,11 +26,11 @@
 				<div id="explore" class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{% url 'index' %}">Home</a>
                     <div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="">Harris Center</a>
-					<a class="dropdown-item" href="{% url 'parking_lot' %}">Harris Commons</a>
-					<a class="dropdown-item" href="">Panther Dining</a>
+                    <a class="dropdown-item" href="{% url 'parking_lot' %}">Harris Commons</a>
+					<a class="dropdown-item" href="{% url 'parking_lot2' %}">Harris Center</a>
+					{% comment %}<a class="dropdown-item" href="">Panther Dining</a>{% endcomment %}
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="">Insights</a>
+					{% comment %}<a class="dropdown-item" href="">Insights</a>{% endcomment %}
 					<a class="dropdown-item" href="">Report</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'about_us'%}">About Us</a>
