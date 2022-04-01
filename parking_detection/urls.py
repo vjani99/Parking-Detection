@@ -6,5 +6,7 @@ urlpatterns = [
     path('harris-commons', views.parking_lot, name='parking_lot'),
     path('parking_lot2', views.parking_lot2, name='parking_lot2'),
     path('about_us', views.about_us, name='about_us'),
-    path('contact_us', views.contact_us, name='contact_us')
+    path('contact_us', views.contact_us, name='contact_us'),
+    path('report', views.report, name='report'),
+    path('map-data', views.model_output, name='map_data'),
 ]
