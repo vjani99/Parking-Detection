@@ -176,10 +176,10 @@
         {% comment %} Dropdown for day {% endcomment %}
         <div class="insights">
             <ul>
-                | <li>50% Occupancy</li> |
-                <li>50% Availability</li> |
-                <li>Section/s Available: 1, 2</li> |
-                <li>Occupancy Prediction: 100% full at 2pm</li> |
+                | <li id="percent-occupancy">50% Occupancy</li> |
+                <li id="percent-availability">50% Availability</li> |
+                <li id="sections-available">Sections Available: 1, 2</li> |
+                <li id="prediction-occupancy">Occupancy Prediction: N / A</li> |
             </ul>
         </div>
 
@@ -213,8 +213,34 @@
 				var l3 = data.zone3;
 				var l4 = data.zone4;
 
+                var lots = [l1, l2, l3, l4];
+
+                var percentAvailable = 0;
+                var sectionsAvailable = [];
+                var sectionsAvailableStr = "";
+
+                for (var i = 0; i < 4; i++) {
+                    if (lots[i] == 1) {
+                        percentAvailable += lots[i];
+                        sectionsAvailable.push(i+1)
+                    }
+                }
+
+                for (var i = 0; i < sectionsAvailable.length; i++) {
+                    sectionsAvailableStr += sectionsAvailable[i] + " ";
+                }
+
+                percentAvailable /= 4;
+                percentAvailable *= 100;
+
 				console.log(data);
 
+                // Update insights
+                document.getElementById("percent-occupancy").innerHTML = `${100-percentAvailable}% Occupancy`;
+                document.getElementById("percent-availability").innerHTML = `${percentAvailable}% Availability`;
+                document.getElementById("sections-available").innerHTML = `Sections Available: ${sectionsAvailableStr}`;
+
+                // Update boxes on map
 				if (l1 == 0) {
 					document.getElementById("l1").innerHTML = "NONE AVAILABLE";
 					document.getElementById("box1").style.border = "2px solid red" 

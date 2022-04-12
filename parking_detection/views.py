@@ -27,7 +27,7 @@ def model_output(request):
     if request.method == "PUT":
         nn_output = {
             "zone1": 1,
-            "zone2": 0,
+            "zone2": 1,
             "zone3": 1,
             "zone4": 0, 
         }

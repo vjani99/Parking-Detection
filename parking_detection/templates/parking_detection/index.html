@@ -92,10 +92,10 @@
                         <div id="insights-list">
                             <p>Insights:</p>
                             <ul>
-                                <li>50% Occupancy</li>
-                                <li>50% Availability</li>
-                                <li>Section/s Available: 1, 2</li>
-                                <li>Occupancy Prediction: 100% full at 2pm</li>
+                                <li id="percent-occupancy">50% Occupancy</li>
+                                <li id="percent-availability">50% Availability</li>
+                                <li id="sections-available">Section/s Available: 1, 2</li>
+                                <li id="prediction-occupancy">Occupancy Prediction: N / A</li>
                             </ul>
                         </div>
                         <p><a class="btn btn-lg btn-primary" href="{% url 'parking_lot' %}" role="button">Show parking lot</a></p>
@@ -141,6 +141,84 @@
                 document.querySelector('#navbar').style.background = "rgba(220, 53, 69, 0.7)"
             }
         });
+    </script>
+
+    <script>
+    // Run updateMap once and then every 5 minutes
+    updateMap();
+    setInterval(updateMap, 300000);
+
+    function updateMap() {
+        fetch("/map-data", {method: "PUT"})
+            .then(response => response.json())
+            .then(data => {
+                var l1 = data.zone1;
+                var l2 = data.zone2;
+                var l3 = data.zone3;
+                var l4 = data.zone4;
+
+                var lots = [l1, l2, l3, l4];
+
+                var percentAvailable = 0;
+                var sectionsAvailable = [];
+                var sectionsAvailableStr = "";
+
+                for (var i = 0; i < 4; i++) {
+                    if (lots[i] == 1) {
+                        percentAvailable += lots[i];
+                        sectionsAvailable.push(i+1)
+                    }
+                }
+
+                for (var i = 0; i < sectionsAvailable.length; i++) {
+                    sectionsAvailableStr += sectionsAvailable[i] + " ";
+                }
+
+                percentAvailable /= 4;
+                percentAvailable *= 100;
+
+                console.log(data);
+
+                // Update insights
+                document.getElementById("percent-occupancy").innerHTML = `${100-percentAvailable}% Occupancy`;
+                document.getElementById("percent-availability").innerHTML = `${percentAvailable}% Availability`;
+                document.getElementById("sections-available").innerHTML = `Sections Available: ${sectionsAvailableStr}`;
+
+                // Update boxes on map
+                if (l1 == 0) {
+                    document.getElementById("l1").innerHTML = "NONE AVAILABLE";
+                    document.getElementById("box1").style.border = "2px solid red" 
+                } else {
+                    document.getElementById("l1").innerHTML = "SPOTS AVAILABLE";
+                    document.getElementById("box1").style.border = "2px solid green" 
+                }
+
+                if (l2 == 0) {
+                    document.getElementById("l2").innerHTML = "NONE AVAILABLE";
+                    document.getElementById("box2").style.border = "2px solid red"
+
+                } else {
+                    document.getElementById("l2").innerHTML = "SPOTS AVAILABLE";
+                    document.getElementById("box2").style.border = "2px solid green"
+                }
+
+                if (l3 == 0) {
+                    document.getElementById("l3").innerHTML = "NONE AVAILABLE";
+                    document.getElementById("box3").style.border = "2px solid red"
+                } else {
+                    document.getElementById("l3").innerHTML = "SPOTS AVAILABLE";
+                    document.getElementById("box3").style.border = "2px solid green" 
+                }
+
+                if (l4 == 0) {
+                    document.getElementById("l4").innerHTML = "NONE AVAILABLE";
+                    document.getElementById("box4").style.border = "2px solid red"
+                } else {
+                    document.getElementById("l4").innerHTML = "SPOTS AVAILABLE";
+                    document.getElementById("box4").style.border = "2px solid green" 
+                }
+            });
+    }
     </script>
 
 {% endblock %}
